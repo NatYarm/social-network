@@ -9,6 +9,10 @@ padding: 0;
 box-sizing: border-box;
 }
 
+html{
+	font-size: 10px;
+}
+
 body {
 	font-family:'Rubik', sans-serif;
 	font-size: 1.8rem;
