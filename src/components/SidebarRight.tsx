@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 
-const links = ['Profile', 'Messages', 'News', 'Music', 'Settings'];
+const toFollow = [
+  'Adam Noel',
+  'Monica Star',
+  'Freddy Smith',
+  'John Watson',
+  'Olivia Silver',
+];
 
-const Sidebar = () => {
+const SidebarRight = () => {
   return (
     <StyledSidebar>
       <nav>
+        <h3>Who to Follow</h3>
         <ul>
-          {links.map((link, index) => (
+          {toFollow.map((link, index) => (
             <li key={index}>
               <a href="/">{link}</a>
             </li>
@@ -19,8 +26,9 @@ const Sidebar = () => {
 };
 
 const StyledSidebar = styled.aside`
-  grid-area: aside;
+  grid-area: asideRight;
+  grid-row: 2/3;
   background-color: #eff5dc;
 `;
 
-export default Sidebar;
+export default SidebarRight;

@@ -15,11 +15,15 @@ html{
 
 body {
 	font-family:'Rubik', sans-serif;
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 	min-width: 36rem;
+	color: #6d6e71;
 }
 
-
+p {
+	font-size: 1.4rem;
+	line-height: 24px;
+}
 
 section {
 	padding: 100px 0;
@@ -41,6 +45,8 @@ button {
 	background-color: unset;
 	border: none;
 	cursor: pointer;
+
+
   }
 
 

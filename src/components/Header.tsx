@@ -10,7 +10,7 @@ const Header = () => {
 };
 
 const StyledHeader = styled.header`
-  background-color: #00d9ff;
+  background-color: #21248e;
   grid-area: header;
 `;
 

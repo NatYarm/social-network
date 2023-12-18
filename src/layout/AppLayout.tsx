@@ -1,29 +1,24 @@
 import styled from 'styled-components';
-import Header from './Header';
-import Main from './Main';
-import Sidebar from './Sidebar';
+import Header from '../components/Header';
+
+import Timeline from '../pages/Timeline';
+
+import Container from '../components/Container';
 
 const AppLayout = () => {
   return (
     <StyledAppLayout>
       <Header />
-      <Sidebar />
-      <Main />
+      <Container>
+        <Timeline />
+      </Container>
     </StyledAppLayout>
   );
 };
 
 const StyledAppLayout = styled.div`
-  display: grid;
   height: 100vh;
-  width: 1200px;
   margin: 0 auto;
-  grid-template-columns: 2fr 10fr;
-  grid-template-rows: auto 1fr;
-
-  grid-template-areas:
-    'header header'
-    'aside main';
 `;
 
 export default AppLayout;
