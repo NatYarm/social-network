@@ -1,45 +1,48 @@
 import styled from 'styled-components';
 import { BiLike, BiComment } from 'react-icons/bi';
-import christmas from '../assets/images/christmas.webp';
-import avatar from '../assets/images/my-avatar.jpeg';
+
 import user11 from '../assets/images/user-11.jpeg';
 import user4 from '../assets/images/user-4.jpeg';
-import { formatDate } from '../utils/helpers';
+import { formatDate } from '../helpers/helpers';
 import Avatar from './Avatar';
 import theme from '../styles/Theme';
 import PostComment from './PostComment';
 
-const Post = () => {
+import { PostType } from '../user';
+
+type PropsType = {
+  userPost: PostType;
+  avatar: string;
+  userName: string;
+};
+
+const Post = ({ userPost, avatar, userName }: PropsType) => {
+  const { image, postContent, likes, comments } = userPost;
+
   const postDate = formatDate();
 
   return (
     <StyledPost>
-      <PostImg src={christmas} alt="christmas carousel" />
+      <PostImg src={image} alt="christmas carousel" />
       <PostContainer>
         <PostDetails>
           <Avatar src={avatar} $avaType="sm" />
           <UserDetails>
-            <Name>Natalia Yarmolinskaya</Name>
+            <Name>{userName}</Name>
             <Date>{postDate}</Date>
           </UserDetails>
           <Reactions>
             <ReactionWrap>
-              <BiLike /> <span>24</span>
+              <BiLike /> <span>{likes}</span>
             </ReactionWrap>
             <ReactionWrap>
-              <BiComment /> <span>7</span>
+              <BiComment /> <span>{comments}</span>
             </ReactionWrap>
           </Reactions>
         </PostDetails>
         <PostContent>
           <LineDivider />
-          <PostText>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            voluptate molestiae eaque earum, doloribus laboriosam iste
-            excepturi? Corporis modi voluptate obcaecati consectetur est non,
-            aperiam, nobis recusandae sequi omnis exercitationem eligendi nulla
-            doloribus unde provident ad ducimus delectus veritatis minima.
-          </PostText>
+          <PostText>{postContent}</PostText>
           <LineDivider />
           <PostComment src={user11} user="Monica" />
           <PostComment src={user4} user="Travis" />
@@ -50,8 +53,10 @@ const Post = () => {
 };
 
 const StyledPost = styled.div`
-  grid-area: post;
   background: #f8f8f8;
+  outline: 1px solid #e6e6e6;
+  margin-bottom: 20px;
+  border-radius: 2px;
 `;
 
 const PostImg = styled.img`

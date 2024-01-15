@@ -24,7 +24,7 @@ const StyledNavbarMobile = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  margin-top: 150px;
+  margin-top: 100px;
 
   a {
     color: ${theme.colors.fontSecondary};

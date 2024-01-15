@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import Menu from './Menu';
+import theme from '../styles/Theme';
 
 const links = [
   { label: 'Timeline' },
   { label: 'Newsfeed' },
   { label: 'Messages' },
-  { label: 'Music' },
   { label: 'Settings' },
 ];
 
@@ -13,13 +13,6 @@ const SidebarLeft = () => {
   return (
     <StyledSidebar>
       <Menu menuItems={links} />
-      {/* <ul>
-        {links.map((link, index) => (
-          <li key={index}>
-            <a href="/">{link}</a>
-          </li>
-        ))}
-      </ul> */}
     </StyledSidebar>
   );
 };
@@ -31,6 +24,10 @@ const StyledSidebar = styled.aside`
 
   ul {
     flex-direction: column;
+  }
+
+  a {
+    color: ${theme.colors.fontSecondary};
   }
 `;
 

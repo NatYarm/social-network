@@ -10,12 +10,12 @@ const Header = () => {
 };
 
 const StyledHeader = styled.header`
-  background-color: #21248e;
+  background: rgba(0, 0, 0, 0.8);
   grid-area: header;
 `;
 
 const Logo = styled.img`
-  height: 10rem;
+  height: 8rem;
 `;
 
 export default Header;

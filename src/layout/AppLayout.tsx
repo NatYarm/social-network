@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import Header from '../components/Header';
-
 import Timeline from '../pages/Timeline';
-
 import Container from '../components/Container';
 
 const AppLayout = () => {

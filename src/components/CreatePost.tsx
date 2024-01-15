@@ -2,30 +2,34 @@ import styled from 'styled-components';
 import { BsPencilSquare, BsImages } from 'react-icons/bs';
 import { HiMiniVideoCamera } from 'react-icons/hi2';
 import { FaRegMap } from 'react-icons/fa';
-import avatar from '../assets/images/my-avatar.jpeg';
+
 import Avatar from './Avatar';
 import Button from './Button';
 import theme from '../styles/Theme';
+import { user } from '../user';
+
+const icons = [
+  { Icon: BsPencilSquare },
+  { Icon: BsImages },
+  { Icon: HiMiniVideoCamera },
+  { Icon: FaRegMap },
+];
 
 const CreatePost = () => {
   return (
     <StyledCreatePost>
       <InputArea>
-        <Avatar src={String(avatar)} $avaType="sm" />
+        <Avatar src={user.avatar} $avaType="sm" />
         <Field placeholder="Write what you wish" />
         <IconsList>
-          <li>
-            <BsPencilSquare />
-          </li>
-          <li>
-            <BsImages />
-          </li>
-          <li>
-            <HiMiniVideoCamera />
-          </li>
-          <li>
-            <FaRegMap />
-          </li>
+          {icons.map((i, idx) => {
+            const { Icon } = i;
+            return (
+              <li key={idx}>
+                <Icon />
+              </li>
+            );
+          })}
         </IconsList>
       </InputArea>
       <ButtonWrapper>
@@ -39,7 +43,8 @@ const StyledCreatePost = styled.div`
   position: relative;
   grid-area: create;
   padding: 20px;
-  margin-bottom: 30px;
+  margin: 30px auto;
+  width: 100%;
 
   &::before {
     content: '';
@@ -63,8 +68,9 @@ const Field = styled.textarea`
   border: 1px solid #bdc0c4;
   border-radius: 3px;
   height: 60px;
-  width: 250px;
+  width: 260px;
   margin-left: 10px;
+  padding: 2px;
 
   &:focus-visible {
     outline: 1px solid ${theme.colors.fontSecondary};

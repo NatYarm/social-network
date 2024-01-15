@@ -1,14 +1,18 @@
 import styled from 'styled-components';
-import avatar from '../assets/images/my-avatar.jpeg';
 import Avatar from './Avatar';
+import theme from '../styles/Theme';
 
-const ProfileInfo = () => {
+type PropsType = {
+  userName: string;
+  avatar: string;
+};
+
+const ProfileInfo: React.FC<PropsType> = ({ userName, avatar }) => {
   return (
     <StyledProfileInfo>
       <Avatar src={avatar} $avaType="lg" />
       <Info>
-        <Name>Natalia Yarmolinskaya</Name>
-        <Title>Web Developer</Title>
+        <Name>{userName}</Name>
       </Info>
     </StyledProfileInfo>
   );
@@ -19,17 +23,17 @@ const StyledProfileInfo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 220px;
+  max-width: 240px;
   width: 100%;
   position: absolute;
-`;
+  top: 210px;
+  z-index: 99;
 
-// const Avatar = styled.img`
-//   height: 180px;
-//   width: 180px;
-//   border-radius: 50%;
-//   border: 5px solid #fff;
-// `;
+  @media ${theme.media.laptop} {
+    left: 50%;
+    transform: translate(-50%);
+  }
+`;
 
 const Info = styled.div`
   padding: 10px;
@@ -41,11 +45,10 @@ const Info = styled.div`
 
 const Name = styled.h3`
   padding: 20px 0 20px;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 2rem;
   text-align: center;
+  color: ${theme.colors.accentSecondary};
 `;
-
-const Title = styled.p``;
 
 export default ProfileInfo;
