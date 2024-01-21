@@ -4,6 +4,7 @@ type AvatarPropsType = {
   size?: string;
   src: string;
   $avaType: 'sm' | 'lg';
+  $border?: string
 };
 
 const Avatar = styled.img<AvatarPropsType>`
@@ -17,6 +18,7 @@ const Avatar = styled.img<AvatarPropsType>`
     css<AvatarPropsType>`
       height: ${(props) => props.size || '60px'};
       width: ${(props) => props.size || '60px'};
+      border: ${(props)=> props.$border || ''};
     `}
 
   //lg

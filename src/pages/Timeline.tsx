@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import TimelineCover from '../components/TimelineCover';
 import CreatePost from '../components/CreatePost';
-import SidebarLeft from '../components/SidebarLeft';
+import SidebarLeft from '../components/SidebarMenu';
 
 import theme from '../styles/Theme';
 import Posts from '../components/Posts';

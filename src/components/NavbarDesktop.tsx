@@ -36,6 +36,10 @@ const MenuWrapper = styled.div`
   align-items: center;
   left: 270px;
   position: absolute;
+
+  ul {
+    gap: 20px;
+  }
 `;
 
 export default Navbar;

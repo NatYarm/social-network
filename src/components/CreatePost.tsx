@@ -21,6 +21,8 @@ const CreatePost = () => {
       <InputArea>
         <Avatar src={user.avatar} $avaType="sm" />
         <Field placeholder="Write what you wish" />
+      </InputArea>
+      <ToolsArea>
         <IconsList>
           {icons.map((i, idx) => {
             const { Icon } = i;
@@ -31,37 +33,29 @@ const CreatePost = () => {
             );
           })}
         </IconsList>
-      </InputArea>
-      <ButtonWrapper>
         <Button $btnType="primary">Publish</Button>
-      </ButtonWrapper>
+      </ToolsArea>
     </StyledCreatePost>
   );
 };
 
 const StyledCreatePost = styled.div`
+  display: flex;
+  align-items: center;
   position: relative;
   grid-area: create;
   padding: 20px;
-  margin: 30px auto;
+  margin-bottom: 20px;
+  min-height: 90px;
   width: 100%;
-
-  &::before {
-    content: '';
-    display: inline-block;
-    height: 1px;
-    width: 100%;
-    background-color: rgb(189, 192, 196, 0.4);
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-  }
+  border-bottom: 1px solid #f1f2f2;
 `;
 
 const InputArea = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
 `;
 
 const Field = styled.textarea`
@@ -86,14 +80,15 @@ const IconsList = styled.ul`
   display: flex;
   gap: 10px;
   color: ${theme.colors.fontSecondary};
-  margin-left: 40px;
   font-size: 1.8rem;
 `;
 
-const ButtonWrapper = styled.div`
+const ToolsArea = styled.div`
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+  padding: 0 20px;
 `;
 
 export default CreatePost;

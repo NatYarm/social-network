@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import Timeline from '../pages/Timeline';
 import Container from '../components/Container';
+import Messenger from '../pages/Messenger';
 
 const AppLayout = () => {
   return (
     <StyledAppLayout>
       <Header />
       <Container>
-        <Timeline />
+        {/* <Timeline /> */}
+        <Messenger />
       </Container>
     </StyledAppLayout>
   );
