@@ -9,30 +9,26 @@ const links = [
   { Icon: MdOutlineViewTimeline, label: 'Timeline' },
   { Icon: IoIosPaper, label: 'Newsfeed' },
   { Icon: IoIosPeople, label: 'Friends' },
-  { Icon: IoMdChatboxes, label: 'Messages' },
+  { Icon: IoMdChatboxes, label: 'Messenger' },
   { Icon: IoSettingsOutline, label: 'Settings' },
 ];
 
-const SidebarMenu = () => {
+const SidebarNav = () => {
   return (
-    <StyledSidebar>
+    <NavList>
       <Menu menuItems={links} />
-    </StyledSidebar>
+    </NavList>
   );
 };
 
-const StyledSidebar = styled.aside`
-  grid-area: asideLeft;
-  grid-row: 2/3;
+const NavList = styled.nav`
+  margin-top: 100px;
 
   ul {
     flex-direction: column;
   }
 
   li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     padding: 20px;
     position: relative;
 
@@ -40,17 +36,13 @@ const StyledSidebar = styled.aside`
       content: '';
       width: 100%;
       height: 1px;
-      border-top: 1px solid #f1f2f2;
+      border-top: 1px solid ${theme.colors.lightGrey};
       position: absolute;
       bottom: 0;
       left: 40px;
       width: 80%;
     }
   }
-
-  a {
-    color: ${theme.colors.fontSecondary};
-  }
 `;
 
-export default SidebarMenu;
+export default SidebarNav;

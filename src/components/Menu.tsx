@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import theme from '../styles/Theme';
 import { IconType } from 'react-icons';
 
@@ -17,12 +18,14 @@ const Menu = ({ menuItems }: MenuItemsPropsType) => {
       {menuItems.map((item, idx) => {
         const { Icon, label } = item;
         return (
-          <ListItem key={idx}>
-            {Icon ? (
-              <Icon style={{ color: iconColors[idx % iconColors.length] }} />
-            ) : null}
-            <NavLink>{label}</NavLink>
-          </ListItem>
+          <li key={idx}>
+            <StyledNavLink to={'/' + label.toLowerCase()}>
+              {Icon && (
+                <Icon style={{ color: iconColors[idx % iconColors.length] }} />
+              )}
+              <span>{label}</span>
+            </StyledNavLink>
+          </li>
         );
       })}
     </MenuList>
@@ -32,11 +35,32 @@ const Menu = ({ menuItems }: MenuItemsPropsType) => {
 const MenuList = styled.ul`
   display: flex;
 `;
-const ListItem = styled.li``;
-const NavLink = styled.a`
-  color: ${theme.colors.fontPrimary};
-  font-size: 1.4rem;
-  cursor: pointer;
+
+const StyledNavLink = styled(NavLink)`
+  &:link,
+  &:visited {
+    display: flex;
+    align-items: center;
+    color: ${theme.colors.fontSecondary};
+    gap: 10px;
+    transition: all 0.3s;
+  }
+
+  &:hover,
+  &:active,
+  &.active:link,
+  &.active:visited {
+    color: ${theme.colors.fontSecondary};
+    font-weight: 600;
+  }
+
+  &:hover svg,
+  &:active svg,
+  &.active:link svg,
+  &.active:visited svg {
+    stroke-width: 1;
+    transition: all 0.3s;
+  }
 `;
 
 const iconColors = ['#8dc63f', '#662d91', '#f06449', '#1c75bc', '#9e1f63'];

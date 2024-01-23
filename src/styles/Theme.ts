@@ -11,6 +11,8 @@ const theme = {
 
     fontPrimary: '#f7f8f9',
     fontSecondary: '#4d4d4d',
+
+    lightGrey: '#f1f2f2',
   },
 
   media: {

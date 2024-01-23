@@ -3,8 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "babel": {
-   
-    "plugins": [ "babel-plugin-styled-components" ]
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "babel-plugin-styled-components",
+        {
+          "namespace": "",
+          "displayName": true,
+          "fileName": true,
+          "ssr": false,
+          "meaninglessFileNames": []
+        }
+      ]
+    ]
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -15,11 +28,13 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.34",
     "@types/uuid": "^9.0.7",
     "date-fns": "^2.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
+    "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.1",
     "typescript": "^4.4.2",

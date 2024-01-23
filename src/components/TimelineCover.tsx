@@ -10,15 +10,19 @@ const TimelineCover = () => {
   const windowSize = useWindowSize();
   const breakpoint = 993;
   return (
-    <>
+    <Cover>
       <Background>
         <ProfileInfo userName={user.userName} avatar={user.avatar} />
         {windowSize >= breakpoint && <NavbarDesktop />}
       </Background>
       {windowSize < breakpoint && <NavbarMobile />}
-    </>
+    </Cover>
   );
 };
+
+const Cover = styled.div`
+  grid-area: cover;
+`;
 
 const Background = styled.div`
   background: url(${user.background});

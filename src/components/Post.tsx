@@ -23,7 +23,7 @@ const Post = ({ userPost, avatar, userName }: PropsType) => {
 
   return (
     <StyledPost>
-      <PostImg src={image} alt="christmas carousel" />
+      {image && <PostImg src={image} alt="post-image" />}
       <PostContainer>
         <PostDetails>
           <Avatar src={avatar} $avaType="sm" />
@@ -40,10 +40,9 @@ const Post = ({ userPost, avatar, userName }: PropsType) => {
             </ReactionWrap>
           </Reactions>
         </PostDetails>
+
         <PostContent>
-          <LineDivider />
           <PostText>{postContent}</PostText>
-          <LineDivider />
           <PostComment src={user11} user="Monica" />
           <PostComment src={user4} user="Travis" />
         </PostContent>
@@ -53,13 +52,14 @@ const Post = ({ userPost, avatar, userName }: PropsType) => {
 };
 
 const StyledPost = styled.div`
-  background: #f8f8f8;
-  outline: 1px solid #e6e6e6;
+  border-radius: 4px;
   margin-bottom: 20px;
-  border-radius: 2px;
+  background: #f8f8f8;
+  outline: 1px solid ${theme.colors.lightGrey};
 `;
 
 const PostImg = styled.img`
+  display: block;
   width: 100%;
   object-fit: contain;
 `;
@@ -70,14 +70,16 @@ const PostContainer = styled.div`
 
 const PostDetails = styled.div`
   display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
 `;
 
 const UserDetails = styled.div`
   display: flex;
+
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  margin-left: 20px;
 `;
 
 const Date = styled.span`
@@ -85,6 +87,7 @@ const Date = styled.span`
 `;
 
 const Name = styled.h5`
+  font-size: 1.6rem;
   color: ${theme.colors.accentSecondary};
 `;
 
@@ -111,14 +114,12 @@ const ReactionWrap = styled.div`
 const PostContent = styled.div`
   margin-left: 80px;
 `;
-const PostText = styled.p``;
 
-const LineDivider = styled.div`
-  height: 1px;
-  border-top: 1px solid #e6e6e6;
-  width: 100%;
-  margin: auto;
-  margin: 10px 0;
+const PostText = styled.p`
+  padding: 20px 0;
+  border-style: solid;
+  border-width: 1px 0;
+  border-color: #e6e6e6;
 `;
 
 export default Post;
